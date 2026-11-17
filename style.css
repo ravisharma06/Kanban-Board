@@ -14,13 +14,16 @@ body {
 :root {
     /* color variables */
     --bg-primary-color: #0f0f0f;
-    --bg-secondary-color: #1a1a1a;
+    --bg-secondary-color: rgba(14, 13, 13, 0.224);
+    --delete-color: red;
     --bg-card-color: #242424;
     --text-primary-color: #ffffff;
     --text-secondary-color: #a0a0a0;
     --accent-color: #6366f1;
     --accent-hover-color: #4f46e5;
     --border-color: #2e2e2e;
+
+
 
     /* padding variables */
     --padding-s: 5px;
@@ -83,18 +86,51 @@ main {
     display: flex;
     padding: var(--padding-s);
 }
-.task-column{
+
+.task-column {
     display: flex;
-    background-color: var(--border-color);
+    background-color: var(--bg-card-color);
     flex-grow: 1;
+    gap: var(--gap-md);
+    flex-direction: column;
     border-radius: var(--radius-s);
     padding: var(--padding-s);
+    transition: all 0.7s ease;
 
 }
 
-.heading{
+.task {
+    background-color: var(--border-color);
+    border: 1px solid var(--border-color);
+    padding: var(--padding-md);
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--radius-s);
+    cursor: grab;
+}
+
+.heading {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
+
+
+
+.task button {
+    align-self: flex-end;
+    padding: var(--padding-s) var(--padding-md);
+    outline: none;
+    border: none;
+    border-radius: var(--radius-s);
+    background-color: var(--delete-color);
+    color: var(--text-primary-color);
+    cursor: pointer;
+}
+
+
+section .task-column.hover-over {
+   border: 2px dashed var(--text-primary-color);
+   scale: 1.03;
+}
