@@ -14,7 +14,7 @@ let draggedTask = null;
 
 
 
-function addTask(title, desc, column) {
+function addTask(title, desc, column = todo) {
     const task = document.createElement("div")
     task.setAttribute("draggable", "true")
     task.classList.add("task")
@@ -24,6 +24,13 @@ function addTask(title, desc, column) {
     <p>${desc}</p>
     <button>delete</button>
     `
+
+    const deleteButton = task.querySelector("button")
+
+    deleteButton.addEventListener("click", () => {
+        task.remove()
+        updateTask()
+    })
 
     column.appendChild(task)
     task.addEventListener("drag", (e) => {
@@ -114,7 +121,7 @@ function addDragOnColumn(column) {
 
 
 
-      updateTask()
+        updateTask()
 
     })
 
@@ -151,6 +158,8 @@ addTaskBtn.addEventListener("click", () => {
 
     updateTask()
 
+    document.querySelector("#task-name").value = ""
+    document.querySelector("#task-desc").value = ""
 
 
 })
