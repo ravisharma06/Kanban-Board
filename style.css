@@ -62,7 +62,7 @@ nav {
     padding: var(--padding-s) var(--padding-md);
 }
 
-.right button {
+#toggle-modal{
     padding: var(--padding-s) var(--padding-md);
     outline: none;
     border: none;
@@ -94,7 +94,7 @@ main {
     gap: var(--gap-md);
     flex-direction: column;
     border-radius: var(--radius-s);
-    padding: var(--padding-s);
+    padding: var(--padding-md);
     transition: all 0.7s ease;
 
 }
@@ -131,6 +131,63 @@ main {
 
 
 section .task-column.hover-over {
-   border: 2px dashed var(--text-primary-color);
-   scale: 1.03;
+    border: 2px dashed var(--text-primary-color);
+    scale: 1.03;
+}
+
+
+.modal {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal .center {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-md);
+}
+
+.modal .center input,
+.modal .center textarea {
+    padding: var(--padding-md);
+    border-radius: var(--radius-s);
+    outline: none;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-card-color);
+    color: var(--text-primary-color);
+}
+
+.modal .center button {
+    padding: var(--padding-md);
+    border-radius: var(--radius-s);
+    outline: none;
+    border: none;
+    background-color: var(--accent-color);
+    color: var(--text-primary-color);
+    cursor: pointer;
+}
+
+
+.modal .bg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 0;
+}
+
+.modal .center {
+    position: relative;
+    z-index: 0.5;
 }
